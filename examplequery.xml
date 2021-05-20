@@ -1,0 +1,127 @@
+<lfm status="ok">
+    <topalbums user="RJ" page="2" perPage="5" totalPages="4718" total="23586">
+        <album rank="6">
+            <name>Echoes - The Best Of Pink Floyd</name>
+            <playcount>267</playcount>
+            <mbid>2a49d08f-5dfc-4ba6-8b40-537e3aa778bd</mbid>
+            <url>
+                https://www.last.fm/music/Pink+Floyd/Echoes+-+The+Best+Of+Pink+Floyd
+            </url>
+            <artist>
+                <name>Pink Floyd</name>
+                <mbid>83d91898-7763-47d7-b03b-b92132375c47</mbid>
+                <url>https://www.last.fm/music/Pink+Floyd</url>
+            </artist>
+            <image size="small">
+                https://lastfm.freetls.fastly.net/i/u/34s/cdee664c355c4c9dbb0e7ba8db690064.png
+            </image>
+            <image size="medium">
+                https://lastfm.freetls.fastly.net/i/u/64s/cdee664c355c4c9dbb0e7ba8db690064.png
+            </image>
+            <image size="large">
+                https://lastfm.freetls.fastly.net/i/u/174s/cdee664c355c4c9dbb0e7ba8db690064.png
+            </image>
+            <image size="extralarge">
+                https://lastfm.freetls.fastly.net/i/u/300x300/cdee664c355c4c9dbb0e7ba8db690064.png
+            </image>
+        </album>
+        <album rank="7">
+            <name>Slave To The Grid</name>
+            <playcount>251</playcount>
+            <mbid/>
+            <url>
+                https://www.last.fm/music/Skid+Row/Slave+To+The+Grid
+            </url>
+            <artist>
+                <name>Skid Row</name>
+                <mbid/>
+                <url>https://www.last.fm/music/Skid+Row</url>
+            </artist>
+            <image size="small">
+                https://lastfm.freetls.fastly.net/i/u/34s/05cc536929ca130183b15c1f1f9f221e.jpg
+            </image>
+            <image size="medium">
+                https://lastfm.freetls.fastly.net/i/u/64s/05cc536929ca130183b15c1f1f9f221e.jpg
+            </image>
+            <image size="large">
+                https://lastfm.freetls.fastly.net/i/u/174s/05cc536929ca130183b15c1f1f9f221e.jpg
+            </image>
+            <image size="extralarge">
+                https://lastfm.freetls.fastly.net/i/u/300x300/05cc536929ca130183b15c1f1f9f221e.jpg
+            </image>
+        </album>
+        <album rank="8">
+            <name>Dire Straits</name>
+            <playcount>243</playcount>
+            <mbid>042c6863-97ea-47f9-a6f7-b11ba98cc932</mbid>
+            <url>
+                https://www.last.fm/music/Dire+Straits/Dire+Straits
+            </url>
+            <artist>
+                <name>Dire Straits</name>
+                <mbid>614e3804-7d34-41ba-857f-811bad7c2b7a</mbid>
+                <url>https://www.last.fm/music/Dire+Straits</url>
+            </artist>
+            <image size="small">
+                https://lastfm.freetls.fastly.net/i/u/34s/cc8218235b6f438dbddd294d9022880e.png
+            </image>
+            <image size="medium">
+                https://lastfm.freetls.fastly.net/i/u/64s/cc8218235b6f438dbddd294d9022880e.png
+            </image>
+            <image size="large">
+                https://lastfm.freetls.fastly.net/i/u/174s/cc8218235b6f438dbddd294d9022880e.png
+            </image>
+            <image size="extralarge">
+                https://lastfm.freetls.fastly.net/i/u/300x300/cc8218235b6f438dbddd294d9022880e.png
+            </image>
+        </album>
+        <album rank="9">
+            <name>Time Bomb</name>
+            <playcount>241</playcount>
+            <mbid>01e475d1-fefa-4e83-a389-4af98e29d311</mbid>
+            <url>https://www.last.fm/music/Buckcherry/Time+Bomb</url>
+            <artist>
+                <name>Buckcherry</name>
+                <mbid>822e92ef-72ea-42e0-9af1-b987816b487a</mbid>
+                <url>https://www.last.fm/music/Buckcherry</url>
+            </artist>
+            <image size="small">
+                https://lastfm.freetls.fastly.net/i/u/34s/667c311baea63b88f110ad49e094fd12.jpg
+            </image>
+            <image size="medium">
+                https://lastfm.freetls.fastly.net/i/u/64s/667c311baea63b88f110ad49e094fd12.jpg
+            </image>
+            <image size="large">
+                https://lastfm.freetls.fastly.net/i/u/174s/667c311baea63b88f110ad49e094fd12.jpg
+            </image>
+            <image size="extralarge">
+                https://lastfm.freetls.fastly.net/i/u/300x300/667c311baea63b88f110ad49e094fd12.jpg
+            </image>
+        </album>
+        <album rank="10">
+            <name>How Do You Do</name>
+            <playcount>220</playcount>
+            <mbid>15a0d39a-586d-4b1e-94ca-953f4cabacdc</mbid>
+            <url>
+                https://www.last.fm/music/Mayer+Hawthorne/How+Do+You+Do
+            </url>
+            <artist>
+                <name>Mayer Hawthorne</name>
+                <mbid>029fbb43-ea37-47a0-8c68-803d69abfa5e</mbid>
+                <url>https://www.last.fm/music/Mayer+Hawthorne</url>
+            </artist>
+            <image size="small">
+                https://lastfm.freetls.fastly.net/i/u/34s/c1e96f217c4c4d15a6d00fff66e21226.png
+            </image>
+            <image size="medium">
+                https://lastfm.freetls.fastly.net/i/u/64s/c1e96f217c4c4d15a6d00fff66e21226.png
+            </image>
+            <image size="large">
+                https://lastfm.freetls.fastly.net/i/u/174s/c1e96f217c4c4d15a6d00fff66e21226.png
+            </image>
+            <image size="extralarge">
+                https://lastfm.freetls.fastly.net/i/u/300x300/c1e96f217c4c4d15a6d00fff66e21226.png
+            </image>
+        </album>
+    </topalbums>
+</lfm>
