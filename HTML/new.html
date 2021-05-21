@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Depeche Mode</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../CSS/normalised.css" type="text/css">
+    <link rel="stylesheet" href="../CSS/style.css" type="text/css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../SCRIPTS/archivo.js"> </script>
+    <script src="../SCRIPTS/utf8.js"> </script>
+    <script src="../SCRIPTS/md5.min.js"> </script>
+    <script src="../SCRIPTS/main.js"> </script>
+    <script src="../SCRIPTS/carga.js"> </script>
+
+    <style>
+        table,th,td {
+            border : 1px solid white;
+            border-collapse: collapse;
+        }
+        th,td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="menu">
+    <ul>
+        <li><a class="active" href="../index.html">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+        <li style="float:right"><a href="../HTML/about.html">About</a></li>
+        <li>Nombre Usuario <div id="nombreUser"></div></li>
+        <li>Nombre Real <div id="nombreReal"></div></li>
+    </ul>
+</nav>
+
+
+
+<div class="textoabout">
+
+    <li> <button  onclick="artistaInfo()"> Nombre del Grupo  <div id="Nombreartista" ></div></button></li>
+    <h1>Depeche Mode Discografía </h1>
+    <img class= "floatI" src="../IMAGES/davidGahan.png" width="325" height="225">
+    <br>
+    La discografía de Depeche Mode consta de catorce álbumes hasta la fecha, ocho discos en directo (sin considerar dos series de conciertos,
+    ni los publicados directamente en DVD), un EP, siete recopilaciones y cincuenta y dos discos sencillos solo en el Reino Unido, así como más
+    de sesenta videos promocionales.
+    <table id="demo"></table>
+    <br><br>
+    <button type="button" onclick="loadDoc()"> Listado de Album mas escuchasdos Depeche Mode</button>
+    <br><br>
+
+
+
+
+</div>
+
+<p>
+<p id="demo4"></p>
+<br><br>
+<button type="button" onclick="loadDoc3()"> Información en Inglés</button>
+</p>
+
+
+
+<table id="demo2"></table>
+<!--<li> <button  onclick="myLoginFunction()"> Acceso Login</button> </li> -->
+<!--<li> <button  onclick="calculateApiSignatureStack()"> Achurrito</button> </li> -->
+
+
+
+
+
+</body>
+</html>

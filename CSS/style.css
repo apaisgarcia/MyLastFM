@@ -1,0 +1,75 @@
+html{
+
+  background: black;
+
+  color:white;
+}
+.fabout{
+  background-image: url("../IMAGES/fondoAbout.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color:white;
+}
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ background-color: #333;
+
+}
+
+.menu li {
+  float: left;
+  border-right:2px solid #bbb;
+}
+
+.menu li:last-child {
+  border-right: none;
+}
+
+.menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 30px 100px;
+  text-decoration: none;
+}
+
+.menu li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.menu .active {
+  background-color: red;
+}
+.floatD{
+  float:right;
+  padding: 20px;
+  margin-left: 20px;
+  border:1px solid grey;
+  border-radius: 10px;
+
+}
+.floatI{
+  float:left;
+  padding:20px;
+  border:1px solid grey;
+  border-radius: 10px;
+  margin-right: 20px;
+
+}
+.textoabout{
+  width: 700px;
+  height: 350px;
+  padding: 180px;
+  float:left;
+  border: 6px groove white;
+  border-radius: 25px;
+  margin: 50px;
+  text-align: justify;
+
+}
+
+
+
