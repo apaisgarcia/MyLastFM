@@ -1,16 +1,15 @@
-
+var myUser=new myFmClass();
 var myAPI_key="c45b29231e8dc2ddc58480caba8cf4da";
 var myshared_secret="16d08d69864296d96b762af568231392";
 var url = window.location.href; // or window.location.href for current url
 var captured = /token=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
 var result = captured ? captured : 'myDefaultValue';
 //console.log(captured);
-var artista = null;
-var nombreUser= null;
-var nombreReal=null;
-
-$('document').ready(function() { //esto lo que hace es que se recargue de forma autómatica el get sesión cuando se carga la págnia
-    // Set elsewhere but hacked into this example:
+var artista ;
+var nombreGlobal;
+var nombreReal;
+var last_url="http://ws.audioscrobbler.com/2.0/?";
+window.onload = function() {
     var apisigGetSession;
     var data = {
         'token': Utf8.encode(captured),
@@ -23,34 +22,20 @@ $('document').ready(function() { //esto lo que hace es que se recargue de forma 
     data["format"] = "json";
 
     console.log("DATa", data);
-    var last_url="http://ws.audioscrobbler.com/2.0/?";
 
 
-    $.ajax({
-        type: "GET",
-        url: last_url,
-        data:data,
-        dataType: 'json',
-        //"success" gets called when the returned code is a "200" (successfull request). "error" gets called whenever another code is returned (e.g. 404, 500).
-        success: function(res){
-
-            console.log("Resposta: Name " + res.session.name);// Should return session key.
-            console.log("Resposta: Key " + res.session.key);
-            nombreUser = res.session.name;
-            console.log("Mi primer nombreUser", nombreUser);
-            $("#nombreUser").text(res.session.name);
-            sessionStorage.setItem("mySessionKey", res.session.key);
-        },
-        error : function(xhr, status, error){
-            var errorMessage = xhr.status + ': ' + xhr.statusText
-            console.log('Error - ' + errorMessage);
-        }
-    });
+     primerallamada(data);
 
 
 
+    //console.log("Nombre Usuario antes getinfo" ,nombreGlobal);
+
+
+};
+function segundallamada(nomUsuari){
+    console.log( "al principo de segunda llama da nomUsuari", nomUsuari);
     var data2 = {
-        'user': 'aliap2704',
+        'user': nomUsuari,
         'api_key': myAPI_key
     };
     data2["method"] = "user.getInfo";
@@ -64,12 +49,13 @@ $('document').ready(function() { //esto lo que hace es que se recargue de forma 
         //"success" gets called when the returned code is a "200" (successfull request). "error" gets called whenever another code is returned (e.g. 404, 500).
         success: function (res) {
 
-            console.log("Resposta: Name " + res.user.realname);// Should return session key.
-            console.log("Resposta: image " + res.user.url);
-            console.log("Resposta: image " + res.user.image[2]['#text']);
-            nombreUser = res.user.name;
-           // console.log("Mi primer nombreUser", nombreUser);
+            //  console.log("Resposta: Name " + res.user.realname);// Should return session key.
+            //  console.log("Resposta: image " + res.user.url);
+            //    console.log("Resposta: image " + res.user.image[2]['#text']);
+          //  nombreGlobal = res.user.name;
+           // console.log("Mi segundo nombreUser", nombreGlobal);
             $("#nombreReal").text(res.user.realname);
+            console.log("Nombre Usuario segunda llamada" ,nomUsuari);
         },
         error: function (xhr, status, error) {
             var errorMessage = xhr.status + ': ' + xhr.statusText
@@ -77,8 +63,43 @@ $('document').ready(function() { //esto lo que hace es que se recargue de forma 
         }
     });
 
-});
+}
+function primerallamada(data){
+    let rer;
+    $.ajax({
+        type: "GET",
+        url: last_url,
+        data:data,
+        dataType: 'json',
+        //"success" gets called when the returned code is a "200" (successfull request). "error" gets called whenever another code is returned (e.g. 404, 500).
+        success: function(res){
 
+            console.log("Resposta: Name " + res.session.name);// Should return session key.
+            console.log("Resposta: Key " + res.session.key);
+            rer = res.session.name;
+            // console.log("Mi primer nombreUser", nombreGlobal);
+             $("#nombreUser").text(res.session.name);
+            sessionStorage.setItem("mySessionKey", res.session.key);
+            sessionStorage.setItem("mySessionName", res.session.name);
+
+            segundallamada(res.session.name);
+        },
+        error : function(xhr, status, error){
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            console.log('Error - ' + errorMessage);
+        }
+    });
+
+    return rer;
+}
+/*
+$(document).ready(function() { //esto lo que hace es que se recargue de forma autómatica el get sesión cuando se carga la págnia
+    // Set elsewhere but hacked into this example:
+
+    //var nombreUser;
+
+});
+*/
 function calculateApiSig( params) {
 
     //Crec que només necessitem apikey, token i secret i no necessitem params, els podem treure de sessionStorage
