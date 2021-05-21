@@ -1,20 +1,23 @@
-class FmClass{
-   constructor() {
-       this.myapi_key=myAPI_key;
-       this.token=token;
-       this.myshared_secret=myshared_secret;
-       this.sk=sk;
-       this.id=id;
-       this.name=name;
-       this.realname=realname;
-       this.url=url;
-       this.image=image;
-       this.country=country;
-       this.age=age;
-       this.gender=gender;
-       this.subscriber=subscriber;
-       this.playcount=playcount;
-       this.playlist=playlist;
+/*class FmClass {
+    constructor() {
+        this.myapi_key = "default";
+        this.token = "default";
+        this.myshared_secret = "default";
+        this.sk = "default";
+        this.id = 0;
+        this.name = "default";
+        this.realname = "default";
+        this.url = "default";
+        this.image = "default";
+        this.country = "default";
+        this.age = 0;
+        this.gender = "default";
+        this.subscriber = 0;
+        this.playcount = 0;
+        this.playlist = 0;
+    }
+}
+*/
 
 
 
@@ -304,7 +307,7 @@ class FmClass{
 
 
 
-       
+
 
    }
 
