@@ -39,7 +39,7 @@ $('document').ready(function() { //esto lo que hace es que se recargue de forma 
             nombreUser = res.session.name;
             console.log("Mi primer nombreUser", nombreUser);
             $("#nombreUser").text(res.session.name);
-
+            sessionStorage.setItem("mySessionKey", res.session.key);
         },
         error : function(xhr, status, error){
             var errorMessage = xhr.status + ': ' + xhr.statusText
@@ -152,32 +152,32 @@ function artistaInfo() {
     });
 
 }
+
+
+
+
+
+
+
 function albumInformacion(){
+    let last_url = "http://ws.audioscrobbler.com/2.0/?";
+    $.ajax({
+        type: "GET",
+        url: last_url,
+        //    artist: 'artist=Depeche mode',
+        data:
+            'method=album.getInfo' +
+            '&api_key=' + myAPI_key+
+            '&artist=Depeche mode'+
+            'album=violator'+
 
-var datos= {
 
-    method: "album.getInfo",
-    artist: Utf8.encode('Depeche mode'),
-    album: 'violator',
-    api_key: myAPI_key
-};
-    var last_url = "http://ws.audioscrobbler.com/2.0/"
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            processarRespostaLoveTrackXmlHtttpRequestSend(xhr);
-            //processarRespostaLoveTrack(this); //seria equivalent, faltaria gestionar errors
-        }
-        //else gestio errors 404,401 ver https://es.wikipedia.org/wiki/Anexo:C%C3%B3digos_de_estado_HTTP errores 4XX
-        //o https://developer.mozilla.org/es/docs/Web/HTTP/Status
-    }
-    var urlquery ="http://ws.audioscrobbler.com/2.0/?method="
 
-        + datos;
+            '&format=xml',
+        dataType: 'xml',
 
-    xhr.open('post', last_url, true);
-    xhr.overrideMimeType('text/xml');
-    xhr.send(null);
+
+    });
 
 
 }
