@@ -1,10 +1,10 @@
-var myUser=new myFmClass();
+
 var myAPI_key="c45b29231e8dc2ddc58480caba8cf4da";
 var myshared_secret="16d08d69864296d96b762af568231392";
 var url = window.location.href; // or window.location.href for current url
 var captured = /token=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
 var result = captured ? captured : 'myDefaultValue';
-//console.log(captured);
+console.log(captured);
 var artista ;
 var nombreGlobal;
 var nombreReal;
@@ -36,7 +36,7 @@ function segundallamada(nomUsuari){
     console.log( "al principo de segunda llama da nomUsuari", nomUsuari);
     var data2 = {
         'user': nomUsuari,
-        'api_key': myAPI_key
+        'api_key': "c45b29231e8dc2ddc58480caba8cf4da"
     };
     data2["method"] = "user.getInfo";
     data2["format"] = "json";
@@ -145,7 +145,7 @@ function artistaInfo() {
         data: 'method=artist.getinfo' +
 
            '&artist=Depeche mode'+
-            '&api_key=' + myAPI_key+
+            '&api_key=' + "c45b29231e8dc2ddc58480caba8cf4da"+
 
 
             '&format=json',

@@ -244,8 +244,6 @@ function loadDoc() {
 
 
 
-
-
 /*
 function  artista(){
 
