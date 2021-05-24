@@ -1,4 +1,7 @@
+
+
 function loadDoc() {
+
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 0) {

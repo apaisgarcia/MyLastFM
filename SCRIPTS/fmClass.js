@@ -16,5 +16,6 @@ class FmClass {
         this.subscriber = 0;
         this.playcount = 0;
         this.playlist = 0;
+        this.login=0;
     }
 }

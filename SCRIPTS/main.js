@@ -1,4 +1,14 @@
-
+/**
+ * @myApi_key - es la clave
+ * @myshared_secret - clave compartida
+ * @url - la url
+ * @captured - token
+ * @artista -
+ * @last_url - url con la que debe iniciar la consulta
+ *
+ * @type {string}
+ *
+ */
 var myAPI_key="c45b29231e8dc2ddc58480caba8cf4da";
 var myshared_secret="16d08d69864296d96b762af568231392";
 var url = window.location.href; // or window.location.href for current url
@@ -9,19 +19,27 @@ var artista ;
 var nombreGlobal;
 var nombreReal;
 var last_url="http://ws.audioscrobbler.com/2.0/?";
+var usuarioWeb= new FmClass();
+/**
+ *  * function window - para que se cargue cuando comencemos la página
+ *
+ *  @data - guarda datos del parametro de la consulta
+ *
+ */
 window.onload = function() {
-    var apisigGetSession;
+  //  var apisigGetSession;
+   // console.log("token sin codificar ",captured);
     var data = {
-        'token': Utf8.encode(captured),
+        'token': captured,
         'api_key': "c45b29231e8dc2ddc58480caba8cf4da",
         'method': 'auth.getSession'
     };
-
+  //  console.log("token codificado",Utf8.encode(captured) );
     data["api_sig"] = calculateApiSig( data);
 
     data["format"] = "json";
 
-    console.log("DATa", data);
+  //  console.log("DATa", data);
 
 
      primerallamada(data);
@@ -32,6 +50,15 @@ window.onload = function() {
 
 
 };
+
+/**
+ * function segunda llamada - para calcualar el api_sig
+ *
+ * @param nomUsuari
+ * @data2 - para obtener el nombre del Usuario conectado
+ * $ajax - datos de la consulta (url necesaria)
+ * @nombreReal- Nombre del usuario (el que tiene en lastFM)
+ */
 function segundallamada(nomUsuari){
     console.log( "al principo de segunda llama da nomUsuari", nomUsuari);
     var data2 = {
@@ -56,6 +83,7 @@ function segundallamada(nomUsuari){
            // console.log("Mi segundo nombreUser", nombreGlobal);
             $("#nombreReal").text(res.user.realname);
             console.log("Nombre Usuario segunda llamada" ,nomUsuari);
+            trackLoveXMlHttpRequestSendQuery();
         },
         error: function (xhr, status, error) {
             var errorMessage = xhr.status + ': ' + xhr.statusText
@@ -64,6 +92,12 @@ function segundallamada(nomUsuari){
     });
 
 }
+
+/**
+ * function primerallama (data)- para realizar la consulta
+ * @param data - parametros para la consulta
+ * @returns {*} - devulve los datos
+ */
 function primerallamada(data){
     let rer;
     $.ajax({
@@ -77,12 +111,14 @@ function primerallamada(data){
             console.log("Resposta: Name " + res.session.name);// Should return session key.
             console.log("Resposta: Key " + res.session.key);
             rer = res.session.name;
+        //    resrKey=res.session.key;
             // console.log("Mi primer nombreUser", nombreGlobal);
              $("#nombreUser").text(res.session.name);
             sessionStorage.setItem("mySessionKey", res.session.key);
             sessionStorage.setItem("mySessionName", res.session.name);
 
             segundallamada(res.session.name);
+           // trackLoveXMlHttpRequestSendQuery(); //llamo al trackLove
         },
         error : function(xhr, status, error){
             var errorMessage = xhr.status + ': ' + xhr.statusText
@@ -92,14 +128,15 @@ function primerallamada(data){
 
     return rer;
 }
-/*
-$(document).ready(function() { //esto lo que hace es que se recargue de forma autómatica el get sesión cuando se carga la págnia
-    // Set elsewhere but hacked into this example:
+/**
+ * function calculateApiSig (params)- calcula el api_sig , añadiendo todos los datos y ordenándolos por orden alfabético
+ * @params params - paremetro que le pasamos
+ * utilizamos Utf8 - para no tener espacios y que los caracteres sean validos
+ * ulitizamos Md5
+ * @returns{*} - Devuelve el api_sig ordenado para utilizar en la consulta
+ *
+ * */
 
-    //var nombreUser;
-
-});
-*/
 function calculateApiSig( params) {
 
     //Crec que només necessitem apikey, token i secret i no necessitem params, els podem treure de sessionStorage
@@ -134,6 +171,24 @@ function calculateApiSig( params) {
     return hashed_sec; // Returns signed POSTable objec */
 
 }
+
+/**
+ * function artistaInfo() - Nos da la información del artista - es este caso el nombre del grupo
+ * $ajax - para guardar los datos
+ * @last_url - url necesaria para dar comienzo a la consulta
+ *
+ * function success(res) - para ver si la consulta tiene éxito
+ * @params res -
+ * @artista - para obtener el nombre del grupo
+ *
+ * function error(shr,status, error) -
+ * @params shr
+ * @params status
+ * @params error
+ *
+ */
+
+
 
 function artistaInfo() {
 
@@ -174,7 +229,11 @@ function artistaInfo() {
 
 }
 
-
+/**
+ * function albumInformacion()
+ * @last_url - url necesaria para dar comienzo a la consulta
+ * $ajax - datos  para realizar la consulta
+ */
 
 
 
@@ -204,10 +263,62 @@ function albumInformacion(){
 }
 
 
+    function trackLoveXMlHttpRequestSendQuery()
+{
+    console.log ("mySessionKey");
+    if (sessionStorage.getItem("mySessionKey") == null)
+
+    {
+        console.log("Error no estas authenticat");
+    }
+    else {
+
+        var dadestl = {
+            method: 'track.Love',
+            artist: Utf8.encode('Depeche Mode'),
+            track: Utf8.encode('Personal Jesus'),
+            api_key: myAPI_key,
+            sk: sessionStorage.getItem("mySessionKey")
+        };
+
+        let last_url = "http://ws.audioscrobbler.com/2.0/";
+        //let myapisiglove = calculateApiSig(dadestl);
+        //dadestl['api_sig']= myapisiglove;
+
+        dadestl['api_sig']= calculateApiSig(dadestl);
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                processarRespostaLoveTrackXmlHtttpRequestSend(xhr);
+            }
+        }
+        var urlquery ="http://ws.audioscrobbler.com/2.0/?method=track.Love"
+            + "&artist=" + dadestl.artist
+            + "&track=" + dadestl.track
+            + "&api_key=" + dadestl.api_key
+            + "&sk=" + dadestl.sk
+            + "&api_sig=" + dadestl.api_sig;
+        xhr.open('POST', urlquery, true);
+        xhr.overrideMimeType('text/xml'); // Crec que sense aquesta linea funcionaria igual
+        //xhr.responseType = 'document';
+        xhr.send(null);
+
+        function processarRespostaLoveTrackXmlHtttpRequestSend(xml) {
+
+            var xmlDoc = xml.responseXML.documentElement;
+            var txt = xmlDoc.getAttribute("status");
+            if( txt == "ok")
+            {
+                document.getElementById("d1").innerHTML = "<h2>Se añadió el Love Correctamente</h2>";
+            }
+            else document.getElementById("d2").innerHTML = "<h2>Error al insertar el love</h2>";
+        }
+    }
 
 
 
-
-
+    }
 
 
