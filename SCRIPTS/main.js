@@ -20,6 +20,7 @@ var nombreGlobal;
 var nombreReal;
 var last_url="http://ws.audioscrobbler.com/2.0/?";
 var usuarioWeb= new FmClass();
+
 /**
  *  * function window - para que se cargue cuando comencemos la página
  *
