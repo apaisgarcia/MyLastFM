@@ -1,5 +1,5 @@
 
-
+/*
 $('document').ready(function(){
 
     function infoUser(){
@@ -11,7 +11,7 @@ $('document').ready(function(){
 
 
 
-});
+});*/
 
 /*
 document.addEventListener("DOMContentLoaded", function(event) {

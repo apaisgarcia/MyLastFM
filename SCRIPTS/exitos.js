@@ -1,4 +1,10 @@
+
 window.onload = function() {
+
+    var mylogin = localStorage.getItem("login");
+    console.log(mylogin);
+if(mylogin!=null) {
+
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -13,7 +19,7 @@ window.onload = function() {
         }
         try { // le pongo un try catch
             if (this.readyState == 4 && this.status == 200) { // esto es que la consulta está perfectamente
-                console.log("4:request finished and response is ready");
+               // console.log("4:request finished and response is ready");
                 //  document.getElementById("demo").innerHTML = this.responseText;
                 myFunction(this);
             }
@@ -23,7 +29,10 @@ window.onload = function() {
     };
     xhttp.open("GET", "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=depeche%20mode&api_key=c45b29231e8dc2ddc58480caba8cf4da", true);
     xhttp.send();
-
+}
+else {
+    alert("Tienes que estar Logueado");
+}
 }
 function myFunction(xml) {
     var i;

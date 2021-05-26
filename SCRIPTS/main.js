@@ -1,9 +1,11 @@
 /**
- * @myApi_key - es la clave
- * @myshared_secret - clave compartida
- * @url - la url
- * @captured - token
- * @artista -
+ * @author - Alia Pais
+ *
+ * @params  myApi_key - es la clave
+ * @params myshared_secret - clave compartida
+ * @params url - la url
+ * @params captured - token
+ * @params artista -
  * @last_url - url con la que debe iniciar la consulta
  *
  * @type {string}
@@ -21,8 +23,9 @@ var nombreReal;
 var last_url="http://ws.audioscrobbler.com/2.0/?";
 var usuarioWeb= new FmClass();
 
+
 /**
- *  * function window - para que se cargue cuando comencemos la página
+ *  * function window.onload - para que se carguela función cuando comencemos la página
  *
  *  @data - guarda datos del parametro de la consulta
  *
@@ -53,12 +56,19 @@ window.onload = function() {
 };
 
 /**
- * function segunda llamada - para calcualar el api_sig
+ * function segundallamada(nomUsuari) - para calcualar el api_sig
  *
  * @param nomUsuari
  * @data2 - para obtener el nombre del Usuario conectado
  * $ajax - datos de la consulta (url necesaria)
+ *
+ *
+ * function success(res) - si la respuesta tiene éxito
+ * @params  foto - para descargar la foto
  * @nombreReal- Nombre del usuario (el que tiene en lastFM)
+ *
+ * function error (xhr,status, error) - en el caso de que no se pueda conectar
+ *
  */
 function segundallamada(nomUsuari){
     console.log( "al principo de segunda llama da nomUsuari", nomUsuari);
@@ -83,8 +93,13 @@ function segundallamada(nomUsuari){
           //  nombreGlobal = res.user.name;
            // console.log("Mi segundo nombreUser", nombreGlobal);
             $("#nombreReal").text(res.user.realname);
+            $("#foto").attr("src",res.user.image[1]['#text']);
+
             console.log("Nombre Usuario segunda llamada" ,nomUsuari);
-            trackLoveXMlHttpRequestSendQuery();
+
+            localStorage.setItem("login","loginsi");
+
+            //trackLoveXMlHttpRequestSendQuery(); --funciona (es para llamar al TrackLove)
         },
         error: function (xhr, status, error) {
             var errorMessage = xhr.status + ': ' + xhr.statusText
@@ -97,7 +112,13 @@ function segundallamada(nomUsuari){
 /**
  * function primerallama (data)- para realizar la consulta
  * @param data - parametros para la consulta
- * @returns {*} - devulve los datos
+ * @returns {*} - devuelve los datos
+ *
+ * function success(res) - si se devuelve con éxito la function primerallamada(data)
+ * @params #nombreUser - nombre usuario
+ *
+ * @params mySessionKey - guarda el sesion Key
+ * @params mySessionName -  guarda el sesion Name
  */
 function primerallamada(data){
     let rer;
@@ -234,13 +255,11 @@ function artistaInfo() {
  * function albumInformacion()
  * @last_url - url necesaria para dar comienzo a la consulta
  * $ajax - datos  para realizar la consulta
+ *
  */
 
 
-
-
-
-function albumInformacion(){
+function albumInformacion(){ //nombre del grupo
     let last_url = "http://ws.audioscrobbler.com/2.0/?";
     $.ajax({
         type: "GET",
@@ -263,6 +282,15 @@ function albumInformacion(){
 
 }
 
+/**
+ * function trackLoveXMlHttpRequestSendQuery()
+ * @params dadestl - le paso los datos de la consulta
+ * @params last_url - le paso la url (dónde despues se añadirán los parametros)
+ * @params xhr - respuesta de la consulta
+ * @params urlquery - devolución de la query (xml)
+ *
+ *
+ */
 
     function trackLoveXMlHttpRequestSendQuery()
 {
