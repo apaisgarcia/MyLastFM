@@ -1,5 +1,6 @@
 /**
  * function loadDoc2() - para ver si carga bien la página con los parametros enviados
+ * @params xhttp - respuesta de la consulta
  *
   */
 
@@ -45,7 +46,7 @@
     function myFunction2(xml) {
         var i;
         var xmlDoc = xml.responseXML;
-        var table = "<tr><th>Name</th><th>Url</th><th>Image</th></tr>";
+        var table = "<tr><th>Name</th><th>Url</th></tr>";
         var x = xmlDoc.getElementsByTagName("artist");
         for (i = 0; i < x.length; i++) {
             table += "<tr><td>" +
@@ -123,7 +124,7 @@ function loadDoc3() {  //consulta Información en Inglés
     }
 
 /**
- *function loadDoc4()
+ *function loadDoc4() -- Información sobre uno de los componenetes (Andrew Fletcher)
  * @params xhttp - repuesta de la consulta
  *
  */
@@ -159,7 +160,7 @@ function loadDoc4() { //Información sobre Andrew Fletcher
 /**
  * function myFunction4(xml) - le paso la consulta en XML
 
- * @param xml
+ * @param xml - paso el documento
  * @params table - como construir la tabla a mostrar .
  * @params i - recorrer el for
  * @params x - etiqueta del xml (la de base)
@@ -168,7 +169,7 @@ function loadDoc4() { //Información sobre Andrew Fletcher
 function myFunction4(xml) { //Información sobre Andrew Fletcher
         var i;
         var xmlDoc = xml.responseXML;
-        var table = "<tr><th>Name</th><th>Url</th><th>Image</th></tr>";
+        var table = "<tr><th>Name</th><th>Url</th></tr>";
         var x = xmlDoc.getElementsByTagName("artist");
         for (i = 0; i < x.length; i++) {
             table += "<tr><td>" +
@@ -184,13 +185,14 @@ function myFunction4(xml) { //Información sobre Andrew Fletcher
         document.getElementById("demo4").innerHTML = table;
     }
 /**
- *function loadDoc4()
+ /**
+ *window.onload =function -- Se carga cuando iniciamos la página- Información sobre uno de los componenetes (Martin L. Gore)
  * @params xhttp - repuesta de la consulta
  *
  */
 
 
-    function loadDoc5() { //Información sobre M. L. Gore
+window.onload = function()  { //Información sobre M. L. Gore
 
 
         var xhttp = new XMLHttpRequest();
@@ -231,34 +233,15 @@ function myFunction4(xml) { //Información sobre Andrew Fletcher
  */
 
 
-function myFunction5(dades){
+function myFunction5(dades){ // Pone el nombre del artista
  console.log(dades);
 
  var txt = "";
- txt = "<h1> El artista es " +dades.artist.name +"</h1>";
- txt = "<h1> El artista es " +dades.artist.name +"</h1>";
+
+ txt = "<h1>  " +dades.artist.name +"</h1>";
     document.getElementById("demo5").innerHTML = txt;
 }
-/*
-    function myFunction5(xml) { //Información sobre M.L Gore
-        var i;
-        var xmlDoc = xml.responseXML;
-        var table = "<tr></tr>";
-        var x = xmlDoc.getElementsByTagName("artist");
-        for (i = 0; i < x.length; i++) {
-            table += "<tr><td>" +
-                x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
 
-                "</td><td>" +
-
-                x[i].getElementsByTagName("bio")[0].getElementsByTagName("summary")[0].childNodes[0].nodeValue +
-                "</td><td></tr>";
-
-
-        }
-        document.getElementById("demo5").innerHTML = table;
-
-    }*/
 
 
 
