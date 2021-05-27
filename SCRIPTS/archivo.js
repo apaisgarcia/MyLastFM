@@ -186,7 +186,7 @@ function myFunction4(xml) { //Información sobre Andrew Fletcher
     }
 /**
  /**
- *window.onload =function -- Se carga cuando iniciamos la página- Información sobre uno de los componenetes (Martin L. Gore)
+ *window.onload =function -- Se carga cuando iniciamos la página-ARTIST Información sobre uno de los componenetes (Martin L. Gore)
  * @params xhttp - repuesta de la consulta
  *
  */

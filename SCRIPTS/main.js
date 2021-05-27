@@ -1,5 +1,7 @@
 /**
+ * Utilizamos la api de last_fm "https://www.last.fm/es/api"
  * @author - Alia Pais
+ *
  *
  * @params  myApi_key - es la clave
  * @params myshared_secret - clave compartida
@@ -27,7 +29,7 @@ var usuarioWeb= new FmClass();
 /**
  *  * function window.onload - para que se carguela función cuando comencemos la página
  *
- *  @data - guarda datos del parametro de la consulta
+ *  @data - guarda datos del parametro necesarios para  la consulta
  *
  */
 window.onload = function() {

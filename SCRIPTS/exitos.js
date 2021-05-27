@@ -1,4 +1,7 @@
-
+/**
+ * window.onload funciton - para que se cargue la función en el momento en el que entras en la aplicación
+ *@params myLogin - Login usuarip
+ */
 window.onload = function() {
 
     var mylogin = localStorage.getItem("login");
@@ -34,6 +37,12 @@ else {
     alert("Tienes que estar Logueado");
 }
 }
+
+/**
+ * function myfunction(xml) - tabla donde se muestar los albunes más escuchados de Depeche Mode
+ * @param xml
+ * @params xmldoc - respuesta xlm
+ */
 function myFunction(xml) {
     var i;
     var xmlDoc = xml.responseXML;
