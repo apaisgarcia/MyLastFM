@@ -334,6 +334,12 @@ function albumInformacion(){ //nombre del grupo
         //xhr.responseType = 'document';
         xhr.send(null);
 
+        /**
+         * function processarRespostaLoveTrackXmlHtttpRequestSend(xml)- procesa la respuesta de la consulta
+         * @param xml
+         * @params txt - documento texto
+         * @xmlDoc - Pone la respuesta en una variable
+         */
         function processarRespostaLoveTrackXmlHtttpRequestSend(xml) {
 
             var xmlDoc = xml.responseXML.documentElement;
