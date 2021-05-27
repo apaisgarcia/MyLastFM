@@ -157,7 +157,7 @@ function loadDoc4() { //Información sobre Andrew Fletcher
     }
 
 /**
- * function myFunction4(xml) - le paso la consulta
+ * function myFunction4(xml) - le paso la consulta en XML
 
  * @param xml
  * @params table - como construir la tabla a mostrar .
